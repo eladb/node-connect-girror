@@ -25,7 +25,39 @@ app.listen(5000);
 
 A working example is available under `samples` (start with `node server`).
 
-# The MIT License
+## Redeploy hook
+
+`connect-girror` implements a simple POST endpoint which triggers redeployment when invoked.
+This is commonly used to serve git post-receive hook such as [GitHub's](http://help.github.com/post-receive-hooks).
+
+To set up the hook, just pass the `{ hook: '/path/to/secret/endpoint' }` option when calling the middleware:
+
+```js
+app.use('/foo', girror('https://github.com/eladb/foo', { hook: '/bhmn489dkjh8m' }));
+```
+
+Then, any HTTP POST request sent to /foo/bhmn489dkjh8m will trigger a redeployment.
+
+## Post-deploy actions
+
+`connect-girror` supports arbitrary post-deployment handlers via the `build` option.
+The default handler will execute `npm install` if `package.json` exists in the root of the
+fetched repository (and `npm` is installed and in the path).
+
+```js
+var exec = require('child_process').exec;
+var foo = girror('https://github.com/eladb/foo', { 
+  hook: '/bhmn489dkjh8m' 
+  build: function(dir, callback) {
+    console.log('foo was just updated! horray!');
+    return callback(); // first argument can be an error which will fail the deployment
+  }
+});
+```
+
+The `updated` event will be triggered just before the child is restarted and it is the perfect place to do stuff like compliation, dependency fetch, etc.
+
+## The MIT License
 
 Copyright (c) 2012 Elad Ben-Israel
 
