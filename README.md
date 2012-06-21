@@ -55,7 +55,19 @@ var foo = girror('https://github.com/eladb/foo', {
 });
 ```
 
-The `updated` event will be triggered just before the child is restarted and it is the perfect place to do stuff like compliation, dependency fetch, etc.
+## API
+
+### `girror(remote, [options])`
+
+`remote` is any legit git URL (e.g. https://user:password@github.com/account/repo, git@github.com:account/repo.git, file:///repo/file/system/path). Any credentials must be supplied in case they are not implicitly installed on the machine.
+
+`options.main` is the app's file name. Defaults to `app.js`.
+
+`options.hook` is the relative URL of the deployment hook endpoint. Any HTTP POST requests sent to this hook will cause a re-deployment. Use some form of obscure key for security.
+
+`options.build` is a `function(callback)` which is called after deployment. `callback` is a `function(err)` that should be called when the build process is over. The default is to run `npm install` in the working directory in case there is a `package.json` file and `npm` is installed.
+
+`options.verbose` can be set to `true` for maximum log verbosity. Otherwise, only errors and warnings will be emitted.
 
 ## The MIT License
 
