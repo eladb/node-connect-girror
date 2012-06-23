@@ -8,7 +8,7 @@ Tiny little connect middleware to mount and auto-deploy apps from a git reposito
 $ npm install connect-girror
 ```
 
-The sample below "mounts" the GitHub repository https://github.com/eladb/foo into the `/foo`
+The sample below "mounts" the github repository https://github.com/eladb/foo into the `/foo`
 route on the connect/express server. When the program is started, [girror](https://github.com/eladb/node-girror) is used to check out a local copy of this repository and [spinner](https://github.com/eladb/node-spinner) is used to spawn `app.js` from this repository and keep it alive. HTTP requests into this route are proxied using [http-proxy](https://github.com/nodejitsu/node-http-proxy) into the child app.
 
 ```js
@@ -28,7 +28,7 @@ A working example is available under `samples` (start with `node server`).
 ## Redeploy hook
 
 `connect-girror` implements a simple POST endpoint which triggers redeployment when invoked.
-This is commonly used to serve git post-receive hook such as [GitHub's](http://help.github.com/post-receive-hooks).
+This is commonly used to serve git post-receive hook such as [github's](http://help.github.com/post-receive-hooks).
 
 To set up the hook, just pass the `{ hook: '/path/to/secret/endpoint' }` option when calling the middleware:
 
