@@ -39,13 +39,13 @@ To set up the hook, just pass the `{ hook: '/path/to/secret/endpoint' }` option 
 app.use('/foo', girror('https://github.com/eladb/foo', { hook: '/bhmn489dkjh8m' }));
 ```
 
-Then, any HTTP POST request sent to /foo/bhmn489dkjh8m will trigger a redeployment.
+Then, any HTTP POST request sent to `/foo/bhmn489dkjh8m` will trigger a redeployment.
 
 ## Post-deploy actions
 
 `connect-girror` supports arbitrary post-deployment handlers via the `build` option.
 The default handler will execute `npm install` if `package.json` exists in the root of the
-fetched repository (and `npm` is installed and in the path).
+fetched repository (and `npm` is installed).
 
 ```js
 var exec = require('child_process').exec;
