@@ -62,7 +62,8 @@ var foo = girror('https://github.com/eladb/foo', {
 
 ### `girror(remote, [options])`
 
-`remote` is any legit git URL (e.g. https://user:password@github.com/account/repo, git@github.com:account/repo.git, file:///repo/file/system/path). Any credentials must be supplied in case they are not implicitly installed on the machine.
+`remote` is any legit git URL (e.g. `https://user:password@github.com/account/repo`, `git@github.com:account/repo.git`, 
+`file:///repo/file/system/path`). Any credentials must be supplied in case they are not implicitly installed on the machine.
 
 `options.main` is the app's file name. Defaults to `app.js`.
 
