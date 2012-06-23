@@ -9,7 +9,10 @@ $ npm install connect-girror
 ```
 
 The sample below "mounts" the github repository https://github.com/eladb/foo into the `/foo`
-route on the connect/express server. When the program is started, [girror](https://github.com/eladb/node-girror) is used to check out a local copy of this repository and [spinner](https://github.com/eladb/node-spinner) is used to spawn `app.js` from this repository and keep it alive. HTTP requests into this route are proxied using [http-proxy](https://github.com/nodejitsu/node-http-proxy) into the child app.
+route on the connect/express server. When the program is started, [girror](https://github.com/eladb/node-girror) is used to 
+checkout a local copy of this repository and [spinner](https://github.com/eladb/node-spinner) is used to spawn `app.js` from 
+this repository and keep it alive. HTTP requests into this route are proxied 
+using [http-proxy](https://github.com/nodejitsu/node-http-proxy) into the child app.
 
 ```js
 var connect = require('connect');
