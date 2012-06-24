@@ -2,7 +2,7 @@
   "author": "Elad Ben-Israel <elad.benisrael@gmail.com> (http://hackingonstuff.net)",
   "name": "connect-girror",
   "description": "Tiny little connect middleware to mount and auto-deploy apps from a git repository",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "homepage": "https://github.com/eladb/node-connect-girror",
   "repository": {
     "type": "git",
