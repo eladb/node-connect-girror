@@ -13,7 +13,7 @@
     "node": ">=0.8.0"
   },
   "dependencies": {
-    "girror": "0.2.5",
+    "girror": "0.2.6",
     "spinner": "0.3.4",
     "http-proxy": "0.8.0"
   },
